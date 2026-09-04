@@ -4,19 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STAR REWIND — Movies & Series</title>
+<title>STAR REWIND — Cinema Beyond Limits</title>
+
+<meta name="description" content="STAR REWIND — Discover movies, series and unforgettable stories.">
+<meta name="theme-color" content="#050505">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap');
 
 :root{
-    --red:#e50914;
-    --red2:#ff2430;
     --black:#050505;
-    --dark:#0b0b0b;
-    --card:#111111;
-    --gray:#a7a7a7;
+    --black2:#0b0b0b;
+    --panel:#111111;
+    --panel2:#171717;
+    --gold:#d4af37;
+    --gold-light:#f0d878;
+    --gold-dark:#8c6f1f;
     --white:#ffffff;
+    --muted:#9a9a9a;
+    --border:rgba(212,175,55,.18);
 }
 
 *{
@@ -31,23 +41,9 @@ html{
 
 body{
     background:var(--black);
-    color:white;
+    color:var(--white);
     font-family:Inter,Arial,sans-serif;
     overflow-x:hidden;
-}
-
-button,
-input{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
 }
 
 /* ================= HEADER ================= */
@@ -57,294 +53,276 @@ header{
     top:0;
     left:0;
     width:100%;
+    height:78px;
     z-index:1000;
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.95),
-        rgba(0,0,0,.65),
-        transparent
-    );
-    padding:20px 5%;
-    transition:.3s;
-}
 
-header.scrolled{
-    background:rgba(5,5,5,.97);
-    border-bottom:1px solid rgba(255,255,255,.07);
-    backdrop-filter:blur(15px);
-}
-
-.nav{
-    max-width:1400px;
-    margin:auto;
     display:flex;
     align-items:center;
     justify-content:space-between;
+
+    padding:0 5%;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.95),
+        rgba(0,0,0,.55),
+        transparent
+    );
+
+    transition:.4s;
+}
+
+header.scrolled{
+    background:rgba(5,5,5,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
 }
 
 .logo{
-    font-family:Montserrat,sans-serif;
-    font-weight:900;
+    font-family:"Playfair Display",serif;
     font-size:25px;
-    letter-spacing:-1px;
+    font-weight:800;
+    letter-spacing:3px;
+    color:white;
+    text-decoration:none;
 }
 
 .logo span{
-    color:var(--red);
+    color:var(--gold);
 }
 
-.logo-mark{
-    color:var(--red);
-    margin-right:6px;
-}
-
-.nav-links{
+.nav{
     display:flex;
     gap:30px;
     align-items:center;
 }
 
-.nav-links a{
+.nav a{
     color:#ddd;
+    text-decoration:none;
     font-size:14px;
-    font-weight:600;
-    transition:.2s;
+    font-weight:500;
+    transition:.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active{
-    color:white;
+.nav a:hover{
+    color:var(--gold);
 }
 
-.nav-actions{
+.nav .active{
+    color:var(--gold);
+}
+
+.header-actions{
     display:flex;
-    gap:12px;
     align-items:center;
+    gap:15px;
 }
 
-.icon-btn{
-    width:40px;
-    height:40px;
-    border-radius:50%;
+.search-btn,
+.menu-btn{
+    width:42px;
+    height:42px;
     border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
     color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    cursor:pointer;
     font-size:17px;
-    transition:.2s;
+    transition:.3s;
 }
 
-.icon-btn:hover{
-    background:var(--red);
-    border-color:var(--red);
+.search-btn:hover,
+.menu-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold);
 }
 
-.mobile-menu{
+.menu-btn{
     display:none;
 }
 
 /* ================= HERO ================= */
 
 .hero{
-    min-height:760px;
+    min-height:100vh;
     position:relative;
     display:flex;
-    align-items:flex-end;
-    overflow:hidden;
+    align-items:center;
 
     background:
-    linear-gradient(
-        90deg,
-        #050505 0%,
-        rgba(5,5,5,.88) 25%,
-        rgba(5,5,5,.38) 60%,
-        rgba(5,5,5,.75) 100%
-    ),
-    linear-gradient(
-        to top,
-        #050505 0%,
-        transparent 40%
-    ),
-    url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2000&q=85");
+        linear-gradient(90deg,
+            rgba(0,0,0,1) 0%,
+            rgba(0,0,0,.88) 35%,
+            rgba(0,0,0,.35) 70%,
+            rgba(0,0,0,.7) 100%
+        ),
+        linear-gradient(0deg,
+            #050505 0%,
+            transparent 30%
+        ),
+        url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2200&q=90");
 
     background-size:cover;
     background-position:center;
 }
 
-.hero-content{
-    width:100%;
-    max-width:1400px;
-    margin:auto;
-    padding:0 5% 100px;
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 65% 45%,
+            rgba(212,175,55,.10),
+            transparent 30%
+        );
+
+    pointer-events:none;
 }
 
-.hero-label{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+    margin-left:8%;
+    padding-top:60px;
+}
+
+.hero-kicker{
+    color:var(--gold);
     font-size:12px;
-    font-weight:800;
-    letter-spacing:2px;
-    color:#fff;
-    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:5px;
     margin-bottom:20px;
 }
 
-.hero-label::before{
-    content:"";
-    width:28px;
-    height:3px;
-    background:var(--red);
-    display:block;
-}
-
 .hero h1{
-    font-family:Montserrat,sans-serif;
-    font-size:clamp(42px,7vw,88px);
-    line-height:.98;
-    max-width:760px;
-    letter-spacing:-4px;
-    margin-bottom:22px;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(55px,8vw,105px);
+    line-height:.92;
+    letter-spacing:-3px;
+    margin-bottom:25px;
 }
 
 .hero h1 span{
-    color:var(--red);
+    color:var(--gold);
 }
 
-.hero-description{
-    max-width:580px;
-    color:#c5c5c5;
-    line-height:1.7;
+.hero p{
+    max-width:560px;
+    color:#c7c7c7;
     font-size:16px;
-    margin-bottom:28px;
-}
-
-.hero-meta{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    color:#ddd;
-    font-size:13px;
-    margin-bottom:28px;
-}
-
-.rating{
-    color:#ffd000;
+    line-height:1.8;
+    margin-bottom:32px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+    gap:15px;
 }
 
-.primary-btn,
-.secondary-btn{
-    padding:14px 23px;
-    border-radius:5px;
+.btn{
+    padding:14px 25px;
+    border-radius:4px;
     border:none;
+    cursor:pointer;
+    font-size:13px;
     font-weight:700;
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-    transition:.25s;
+    letter-spacing:.5px;
+    transition:.3s;
 }
 
-.primary-btn{
-    background:white;
+.btn-gold{
+    background:var(--gold);
     color:#050505;
 }
 
-.primary-btn:hover{
-    background:var(--red);
-    color:white;
+.btn-gold:hover{
+    background:var(--gold-light);
     transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(212,175,55,.22);
 }
 
-.secondary-btn{
-    background:rgba(255,255,255,.12);
+.btn-dark{
+    background:rgba(255,255,255,.07);
     color:white;
-    border:1px solid rgba(255,255,255,.14);
-    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
 }
 
-.secondary-btn:hover{
-    background:rgba(255,255,255,.2);
+.btn-dark:hover{
+    border-color:var(--gold);
+    color:var(--gold);
 }
 
-/* ================= MAIN ================= */
+/* ================= GENERAL ================= */
 
-main{
-    position:relative;
-    z-index:2;
+section{
+    padding:85px 5%;
 }
 
-.section{
-    max-width:1400px;
-    margin:auto;
-    padding:70px 5% 0;
-}
-
-.section-header{
+.section-head{
     display:flex;
     justify-content:space-between;
     align-items:end;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
 .section-title{
-    font-family:Montserrat,sans-serif;
-    font-size:28px;
-    letter-spacing:-1px;
+    font-family:"Playfair Display",serif;
+    font-size:34px;
 }
 
 .section-title span{
-    color:var(--red);
+    color:var(--gold);
+}
+
+.section-subtitle{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:7px;
 }
 
 .view-all{
-    color:#999;
+    color:var(--gold);
+    text-decoration:none;
     font-size:13px;
-    font-weight:600;
 }
 
-.view-all:hover{
-    color:white;
-}
+/* ================= GENRES ================= */
 
-/* ================= CATEGORY BAR ================= */
-
-.category-bar{
+.genre-bar{
     display:flex;
-    gap:9px;
+    gap:10px;
     overflow-x:auto;
-    padding-bottom:12px;
+    padding-bottom:8px;
+    margin-bottom:35px;
     scrollbar-width:none;
 }
 
-.category-bar::-webkit-scrollbar{
+.genre-bar::-webkit-scrollbar{
     display:none;
 }
 
-.category{
+.genre{
     white-space:nowrap;
-    padding:9px 16px;
-    background:#111;
-    border:1px solid #252525;
-    color:#aaa;
+    padding:9px 17px;
     border-radius:30px;
+    border:1px solid rgba(255,255,255,.1);
+    color:#aaa;
+    background:#0d0d0d;
+    cursor:pointer;
     font-size:12px;
-    font-weight:600;
-    transition:.2s;
+    transition:.3s;
 }
 
-.category:hover,
-.category.active{
-    background:white;
+.genre:hover,
+.genre.active{
     color:#050505;
-    border-color:white;
+    background:var(--gold);
+    border-color:var(--gold);
 }
 
 /* ================= MOVIE GRID ================= */
@@ -355,21 +333,30 @@ main{
     gap:18px;
 }
 
-.movie-card{
-    min-width:0;
+.card{
     position:relative;
     cursor:pointer;
-    transition:.3s;
+    min-width:0;
 }
 
 .poster{
     position:relative;
-    width:100%;
     aspect-ratio:2/3;
-    border-radius:7px;
     overflow:hidden;
-    background:#161616;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
+    border-radius:5px;
+    background:#111;
+}
+
+.poster img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.card:hover .poster img{
+    transform:scale(1.07);
 }
 
 .poster::after{
@@ -379,39 +366,17 @@ main{
     background:linear-gradient(
         to top,
         rgba(0,0,0,.9),
-        transparent 55%
+        transparent 50%
     );
-    opacity:.75;
-}
-
-.poster img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.45s;
-}
-
-.movie-card:hover{
-    transform:translateY(-7px);
-}
-
-.movie-card:hover .poster img{
-    transform:scale(1.06);
-}
-
-.movie-card:hover .poster{
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.6),
-        0 0 0 1px rgba(229,9,20,.4);
 }
 
 .card-info{
-    padding-top:11px;
+    padding-top:12px;
 }
 
 .card-title{
     font-size:14px;
-    font-weight:700;
+    font-weight:600;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -419,149 +384,194 @@ main{
 
 .card-meta{
     display:flex;
-    justify-content:space-between;
+    gap:8px;
     margin-top:6px;
     color:#777;
     font-size:11px;
 }
 
-.card-rating{
-    color:#d8b400;
+.rating{
+    color:var(--gold);
 }
 
 .badge{
     position:absolute;
-    top:9px;
-    left:9px;
-    z-index:5;
-    background:var(--red);
-    padding:5px 7px;
-    border-radius:3px;
+    top:10px;
+    left:10px;
+    z-index:3;
+    background:var(--gold);
+    color:#050505;
+    padding:5px 8px;
     font-size:9px;
     font-weight:800;
-    letter-spacing:.5px;
+    letter-spacing:1px;
+    border-radius:2px;
 }
 
-.watch-icon{
+.play{
     position:absolute;
-    right:10px;
-    bottom:42px;
-    width:36px;
-    height:36px;
-    border-radius:50%;
-    background:white;
-    color:#111;
-    z-index:5;
+    z-index:4;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-40%) scale(.7);
+
+    width:50px;
+    height:50px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    border-radius:50%;
+    background:rgba(212,175,55,.95);
+    color:#050505;
+
     opacity:0;
-    transform:translateY(8px);
-    transition:.25s;
+    transition:.3s;
 }
 
-.movie-card:hover .watch-icon{
+.card:hover .play{
     opacity:1;
-    transform:translateY(0);
+    transform:translate(-50%,-50%) scale(1);
 }
 
-/* ================= FEATURED STRIP ================= */
+/* ================= GOLD DIVIDER ================= */
 
-.feature-strip{
-    max-width:1400px;
-    margin:80px auto 0;
-    padding:0 5%;
+.gold-line{
+    width:70px;
+    height:2px;
+    background:var(--gold);
+    margin-top:12px;
 }
 
-.feature-box{
-    min-height:350px;
-    border-radius:12px;
-    overflow:hidden;
+/* ================= FEATURE ================= */
+
+.feature{
+    min-height:430px;
     position:relative;
+    display:flex;
+    align-items:center;
 
     background:
-    linear-gradient(
-        90deg,
-        rgba(5,5,5,.97),
-        rgba(5,5,5,.72),
-        rgba(5,5,5,.15)
-    ),
-    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1800&q=85");
+        linear-gradient(90deg,#050505 5%,rgba(5,5,5,.88) 40%,rgba(5,5,5,.25)),
+        url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=2200&q=85");
 
     background-size:cover;
     background-position:center;
-    display:flex;
-    align-items:center;
-    padding:50px;
+
+    margin:20px 5% 70px;
+    border:1px solid var(--border);
+    overflow:hidden;
 }
 
 .feature-content{
-    max-width:550px;
+    max-width:540px;
+    padding:60px;
 }
 
-.small-label{
-    color:var(--red);
+.feature-label{
+    color:var(--gold);
+    letter-spacing:4px;
     font-size:11px;
-    font-weight:800;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:15px;
+    font-weight:700;
 }
 
-.feature-content h2{
-    font-family:Montserrat,sans-serif;
-    font-size:38px;
-    margin-bottom:15px;
+.feature h2{
+    font-family:"Playfair Display",serif;
+    font-size:48px;
+    margin:15px 0;
 }
 
-.feature-content p{
-    color:#bbb;
-    line-height:1.6;
+.feature p{
+    color:#aaa;
+    line-height:1.7;
     font-size:14px;
-    margin-bottom:22px;
 }
 
-/* ================= SWITCH ================= */
+/* ================= SERIES SWITCH ================= */
 
 .switcher{
-    display:inline-flex;
-    background:#111;
-    border:1px solid #222;
-    padding:4px;
-    border-radius:7px;
-    margin-bottom:28px;
+    display:flex;
+    border:1px solid var(--border);
+    border-radius:30px;
+    overflow:hidden;
 }
 
-.switch-btn{
+.switcher button{
+    border:0;
     background:transparent;
-    border:none;
-    color:#777;
-    padding:10px 18px;
-    border-radius:5px;
-    font-weight:700;
-    font-size:12px;
+    color:#888;
+    padding:9px 17px;
+    cursor:pointer;
+    font-size:11px;
 }
 
-.switch-btn.active{
-    background:white;
-    color:#111;
+.switcher button.active{
+    background:var(--gold);
+    color:#050505;
+}
+
+/* ================= SEARCH ================= */
+
+.search-overlay{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(0,0,0,.96);
+    backdrop-filter:blur(20px);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.search-overlay.show{
+    display:flex;
+}
+
+.search-box{
+    width:min(700px,90%);
+}
+
+.search-box input{
+    width:100%;
+    background:transparent;
+    border:0;
+    border-bottom:2px solid var(--gold);
+    color:white;
+    padding:15px 0;
+    font-size:30px;
+    outline:none;
+}
+
+.search-box input::placeholder{
+    color:#555;
+}
+
+.close-search{
+    position:absolute;
+    top:30px;
+    right:40px;
+    background:none;
+    border:0;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-    margin-top:100px;
-    padding:60px 5%;
-    border-top:1px solid #191919;
+    padding:70px 5% 35px;
+    border-top:1px solid rgba(255,255,255,.07);
     background:#030303;
 }
 
-.footer-inner{
-    max-width:1400px;
-    margin:auto;
+.footer-top{
     display:flex;
     justify-content:space-between;
     gap:40px;
+    margin-bottom:60px;
 }
 
 .footer-brand{
@@ -569,94 +579,48 @@ footer{
 }
 
 .footer-brand .logo{
-    margin-bottom:15px;
+    display:block;
+    margin-bottom:18px;
 }
 
 .footer-brand p{
-    color:#666;
-    line-height:1.6;
+    color:#777;
+    line-height:1.7;
     font-size:13px;
 }
 
 .footer-links{
     display:flex;
-    gap:50px;
+    gap:70px;
 }
 
-.footer-column h4{
+.footer-links h4{
     font-size:12px;
-    margin-bottom:15px;
-    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
     letter-spacing:1px;
 }
 
-.footer-column a{
+.footer-links a{
     display:block;
-    color:#666;
+    color:#777;
+    text-decoration:none;
     font-size:12px;
-    margin-bottom:10px;
+    margin-bottom:11px;
 }
 
-.footer-column a:hover{
+.footer-links a:hover{
     color:white;
 }
 
 .copyright{
-    max-width:1400px;
-    margin:45px auto 0;
-    padding-top:20px;
-    border-top:1px solid #151515;
-    color:#444;
+    border-top:1px solid rgba(255,255,255,.07);
+    padding-top:25px;
+    color:#555;
     font-size:11px;
 }
 
-/* ================= SEARCH MODAL ================= */
-
-.search-overlay{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    background:rgba(0,0,0,.95);
-    backdrop-filter:blur(15px);
-    display:none;
-    align-items:flex-start;
-    justify-content:center;
-    padding:120px 5%;
-}
-
-.search-overlay.open{
-    display:flex;
-}
-
-.search-box{
-    width:100%;
-    max-width:850px;
-}
-
-.search-top{
-    display:flex;
-    align-items:center;
-    border-bottom:2px solid #444;
-}
-
-.search-top input{
-    flex:1;
-    background:none;
-    border:none;
-    outline:none;
-    color:white;
-    font-size:28px;
-    padding:15px 0;
-}
-
-.close-search{
-    background:none;
-    border:none;
-    color:#aaa;
-    font-size:25px;
-}
-
-/* ================= RESPONSIVE ================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:1100px){
 
@@ -666,90 +630,85 @@ footer{
 
 }
 
-@media(max-width:700px){
+@media(max-width:750px){
 
     header{
-        padding:15px 4%;
+        height:68px;
+        padding:0 5%;
     }
 
-    .nav-links{
+    .logo{
+        font-size:20px;
+        letter-spacing:2px;
+    }
+
+    .nav{
         display:none;
     }
 
-    .mobile-menu{
-        display:flex;
+    .menu-btn{
+        display:block;
     }
 
     .hero{
-        min-height:650px;
+        min-height:90vh;
         background-position:60% center;
     }
 
     .hero-content{
-        padding:0 5% 70px;
+        margin-left:6%;
+        margin-right:6%;
+        padding-top:100px;
     }
 
     .hero h1{
-        letter-spacing:-2px;
+        font-size:58px;
     }
 
-    .hero-description{
+    .hero p{
         font-size:14px;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+
+    .section-title{
+        font-size:28px;
     }
 
     .movie-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:14px;
+        gap:15px;
     }
 
-    .section{
-        padding-top:50px;
+    .feature{
+        margin:10px 5% 50px;
+        min-height:400px;
     }
 
-    .section-title{
-        font-size:22px;
-    }
-
-    .feature-box{
+    .feature-content{
         padding:30px;
-        min-height:380px;
     }
 
-    .feature-content h2{
-        font-size:29px;
+    .feature h2{
+        font-size:35px;
     }
 
-    .footer-inner{
+    .footer-top{
         flex-direction:column;
     }
 
     .footer-links{
-        gap:30px;
-        flex-wrap:wrap;
-    }
-
-}
-
-@media(min-width:701px) and (max-width:1000px){
-
-    .movie-grid{
-        grid-template-columns:repeat(4,1fr);
+        gap:40px;
     }
 
 }
 
 @media(max-width:420px){
 
-    .logo{
-        font-size:20px;
-    }
-
-    .hero{
-        min-height:600px;
-    }
-
     .hero h1{
-        font-size:39px;
+        font-size:50px;
     }
 
     .hero-buttons{
@@ -757,92 +716,72 @@ footer{
         align-items:flex-start;
     }
 
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-        justify-content:center;
-    }
-
-    .poster{
-        border-radius:5px;
+    .btn{
+        width:180px;
     }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- ================= HEADER ================= -->
 
 <header id="header">
 
-<div class="nav">
-
 <a href="#" class="logo">
-<span class="logo-mark">★</span>STAR <span>REWIND</span>
+STAR <span>REWIND</span>
 </a>
 
-<div class="nav-links">
-<a href="#" class="active">Home</a>
+<nav class="nav">
+<a href="#home" class="active">Home</a>
 <a href="#movies">Movies</a>
 <a href="#series">Series</a>
 <a href="#trending">Trending</a>
-</div>
+</nav>
 
-<div class="nav-actions">
+<div class="header-actions">
 
-<button class="icon-btn" onclick="openSearch()">⌕</button>
+<button class="search-btn" onclick="openSearch()">⌕</button>
 
-<button class="icon-btn mobile-menu">☰</button>
-
-</div>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
 </div>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
-<section class="hero">
+<section class="hero" id="home">
 
 <div class="hero-content">
 
-<div class="hero-label">
+<div class="hero-kicker">
 STAR REWIND ORIGINAL
 </div>
 
 <h1>
-Your world of
-<span>cinema.</span>
+Cinema<br>
+<span>Beyond Limits.</span>
 </h1>
 
-<p class="hero-description">
-Discover unforgettable movies and series from Hollywood,
-Bollywood, Turkish cinema, Korean dramas and more.
-Explore stories, genres and entertainment — all in one place.
+<p>
+Discover unforgettable movies, powerful stories and extraordinary series from around the world — all in one cinematic destination.
 </p>
-
-<div class="hero-meta">
-
-<span class="rating">★ 9.2</span>
-<span>2026</span>
-<span>•</span>
-<span>Featured</span>
-<span>•</span>
-<span>Drama</span>
-
-</div>
 
 <div class="hero-buttons">
 
-<a href="#trending" class="primary-btn">
-▶ Explore Now
-</a>
+<button class="btn btn-gold"
+onclick="document.getElementById('movies').scrollIntoView()">
+EXPLORE MOVIES
+</button>
 
-<button class="secondary-btn">
-＋ My List
+<button class="btn btn-dark"
+onclick="document.getElementById('series').scrollIntoView()">
+EXPLORE SERIES
 </button>
 
 </div>
@@ -852,173 +791,252 @@ Explore stories, genres and entertainment — all in one place.
 </section>
 
 
-<main>
+<!-- ================= TRENDING ================= -->
 
+<section id="trending">
 
-<!-- TRENDING -->
+<div class="section-head">
 
-<section class="section" id="trending">
+<div>
+<div class="section-title">
+Trending <span>Now</span>
+</div>
+<div class="gold-line"></div>
+</div>
 
-<div class="section-header">
-
-<h2 class="section-title">
-🔥 <span>Trending</span> Now
-</h2>
-
-<a href="#" class="view-all">View all →</a>
+<a href="#" class="view-all">VIEW ALL →</a>
 
 </div>
 
 
 <div class="movie-grid">
 
-<div class="movie-card">
-
+<div class="card">
 <div class="poster">
-
+<span class="badge">#1</span>
+<div class="play">▶</div>
 <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80">
-
-<div class="badge">TRENDING</div>
-
-<div class="watch-icon">▶</div>
-
 </div>
-
 <div class="card-info">
-
-<div class="card-title">Midnight Cinema</div>
-
+<div class="card-title">The Last Horizon</div>
 <div class="card-meta">
-<span>Drama</span>
-<span class="card-rating">★ 8.9</span>
+<span class="rating">★ 8.7</span>
+<span>2026</span>
+</div>
+</div>
 </div>
 
-</div>
 
-</div>
-
-
-<div class="movie-card">
-
+<div class="card">
 <div class="poster">
-
-<img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=700&q=80">
-
-<div class="badge">TOP 10</div>
-
-<div class="watch-icon">▶</div>
-
-</div>
-
-<div class="card-info">
-
-<div class="card-title">The Last Frame</div>
-
-<div class="card-meta">
-<span>Thriller</span>
-<span class="card-rating">★ 8.7</span>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="movie-card">
-
-<div class="poster">
-
+<span class="badge">#2</span>
+<div class="play">▶</div>
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80">
-
-<div class="watch-icon">▶</div>
-
 </div>
-
 <div class="card-info">
-
-<div class="card-title">Beyond Tomorrow</div>
-
+<div class="card-title">Midnight City</div>
 <div class="card-meta">
-<span>Sci-Fi</span>
-<span class="card-rating">★ 8.6</span>
+<span class="rating">★ 8.4</span>
+<span>2026</span>
+</div>
+</div>
 </div>
 
-</div>
 
-</div>
-
-
-<div class="movie-card">
-
+<div class="card">
 <div class="poster">
+<span class="badge">#3</span>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">The Hidden World</div>
+<div class="card-meta">
+<span class="rating">★ 8.2</span>
+<span>2025</span>
+</div>
+</div>
+</div>
 
-<img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=700&q=80">
 
-<div class="watch-icon">▶</div>
+<div class="card">
+<div class="poster">
+<span class="badge">#4</span>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">Empire of Shadows</div>
+<div class="card-meta">
+<span class="rating">★ 8.1</span>
+<span>2025</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="poster">
+<span class="badge">#5</span>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">After the Storm</div>
+<div class="card-meta">
+<span class="rating">★ 8.0</span>
+<span>2025</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="poster">
+<span class="badge">#6</span>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">Golden Hour</div>
+<div class="card-meta">
+<span class="rating">★ 7.9</span>
+<span>2025</span>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- ================= MOVIES ================= -->
+
+<section id="movies">
+
+<div class="section-head">
+
+<div>
+<div class="section-title">
+Explore <span>Movies</span>
+</div>
+<div class="gold-line"></div>
+</div>
+
+<a href="#" class="view-all">SEE ALL →</a>
 
 </div>
 
+
+<div class="genre-bar">
+
+<button class="genre active">All</button>
+<button class="genre">Hollywood</button>
+<button class="genre">Bollywood</button>
+<button class="genre">Turkish</button>
+<button class="genre">Korean</button>
+<button class="genre">Action</button>
+<button class="genre">Romance</button>
+<button class="genre">Thriller</button>
+<button class="genre">Horror</button>
+<button class="genre">Fantasy</button>
+<button class="genre">Comedy</button>
+<button class="genre">Drama</button>
+<button class="genre">Sci-Fi</button>
+<button class="genre">Crime</button>
+
+</div>
+
+
+<div class="movie-grid">
+
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=700&q=80">
+</div>
 <div class="card-info">
-
-<div class="card-title">Final Scene</div>
-
+<div class="card-title">The Final Chapter</div>
 <div class="card-meta">
+<span class="rating">★ 8.6</span>
 <span>Action</span>
-<span class="card-rating">★ 8.5</span>
 </div>
-
 </div>
-
 </div>
 
 
-<div class="movie-card">
-
+<div class="card">
 <div class="poster">
-
-<img src="https://images.unsplash.com/photo-1533920379810-6bedac961555?auto=format&fit=crop&w=700&q=80">
-
-<div class="badge">NEW</div>
-
-<div class="watch-icon">▶</div>
-
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80">
 </div>
-
 <div class="card-info">
-
-<div class="card-title">Lost Horizons</div>
-
+<div class="card-title">Beyond the Night</div>
 <div class="card-meta">
-<span>Adventure</span>
-<span class="card-rating">★ 8.4</span>
+<span class="rating">★ 8.3</span>
+<span>Thriller</span>
+</div>
+</div>
 </div>
 
-</div>
 
-</div>
-
-
-<div class="movie-card">
-
+<div class="card">
 <div class="poster">
-
-<img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80">
-
-<div class="watch-icon">▶</div>
-
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">Love in Paris</div>
+<div class="card-meta">
+<span class="rating">★ 8.0</span>
+<span>Romance</span>
+</div>
+</div>
 </div>
 
-<div class="card-info">
 
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
 <div class="card-title">Dark Kingdom</div>
-
 <div class="card-meta">
+<span class="rating">★ 8.5</span>
 <span>Fantasy</span>
-<span class="card-rating">★ 8.3</span>
+</div>
+</div>
 </div>
 
+
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">Lost Galaxy</div>
+<div class="card-meta">
+<span class="rating">★ 8.7</span>
+<span>Sci-Fi</span>
+</div>
+</div>
 </div>
 
+
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">The Stranger</div>
+<div class="card-meta">
+<span class="rating">★ 7.9</span>
+<span>Drama</span>
+</div>
+</div>
 </div>
 
 </div>
@@ -1026,128 +1044,162 @@ Explore stories, genres and entertainment — all in one place.
 </section>
 
 
-<!-- MOVIES -->
+<!-- ================= FEATURE ================= -->
 
-<section class="section" id="movies">
+<div class="feature">
 
-<div class="section-header">
+<div class="feature-content">
 
-<h2 class="section-title">
-🎬 <span>Movies</span>
+<div class="feature-label">
+THE CINEMA EXPERIENCE
+</div>
+
+<h2>
+Stories worth remembering.
 </h2>
 
-<a href="#" class="view-all">Browse movies →</a>
-
-</div>
-
-
-<div class="category-bar">
-
-<button class="category active">All</button>
-<button class="category">Hollywood</button>
-<button class="category">Bollywood</button>
-<button class="category">Turkish</button>
-<button class="category">Korean</button>
-<button class="category">Action</button>
-<button class="category">Romance</button>
-<button class="category">Horror</button>
-<button class="category">Comedy</button>
-<button class="category">Thriller</button>
-<button class="category">Sci-Fi</button>
-
-</div>
+<p>
+From unforgettable romances to breathtaking adventures, STAR REWIND brings together stories from different cultures, industries and generations.
+</p>
 
 <br>
+
+<button class="btn btn-gold"
+onclick="openSearch()">
+DISCOVER MORE
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ================= SERIES ================= -->
+
+<section id="series">
+
+<div class="section-head">
+
+<div>
+<div class="section-title">
+Binge-worthy <span>Series</span>
+</div>
+<div class="gold-line"></div>
+</div>
+
+<div class="switcher">
+
+<button class="active">Popular</button>
+<button>New</button>
+<button>Top Rated</button>
+
+</div>
+
+</div>
+
+
+<div class="genre-bar">
+
+<button class="genre active">All</button>
+<button class="genre">Hollywood</button>
+<button class="genre">Turkish</button>
+<button class="genre">K-Drama</button>
+<button class="genre">Fantasy</button>
+<button class="genre">Crime</button>
+<button class="genre">Romance</button>
+<button class="genre">Drama</button>
+<button class="genre">Mystery</button>
+
+</div>
 
 
 <div class="movie-grid">
 
-<div class="movie-card">
+<div class="card">
 <div class="poster">
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=700&q=80">
 </div>
 <div class="card-info">
-<div class="card-title">The Unknown</div>
+<div class="card-title">House of Secrets</div>
 <div class="card-meta">
-<span>Hollywood • 2026</span>
-<span class="card-rating">★ 8.8</span>
+<span class="rating">★ 9.0</span>
+<span>3 Seasons</span>
 </div>
 </div>
 </div>
 
 
-<div class="movie-card">
+<div class="card">
 <div class="poster">
-<img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1574267432644-f610f5f0a2a4?auto=format&fit=crop&w=700&q=80">
 </div>
 <div class="card-info">
-<div class="card-title">Eternal Love</div>
+<div class="card-title">The Crown</div>
 <div class="card-meta">
-<span>Romance</span>
-<span class="card-rating">★ 8.5</span>
+<span class="rating">★ 8.8</span>
+<span>4 Seasons</span>
 </div>
 </div>
 </div>
 
 
-<div class="movie-card">
+<div class="card">
 <div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">Behind the Door</div>
+<div class="card-meta">
+<span class="rating">★ 8.5</span>
+<span>2 Seasons</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80">
+</div>
+<div class="card-info">
+<div class="card-title">City Lights</div>
+<div class="card-meta">
+<span class="rating">★ 8.3</span>
+<span>3 Seasons</span>
+</div>
+</div>
+</div>
+
+
+<div class="card">
+<div class="poster">
+<div class="play">▶</div>
 <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
 </div>
 <div class="card-info">
 <div class="card-title">The Journey</div>
 <div class="card-meta">
-<span>Adventure</span>
-<span class="card-rating">★ 8.2</span>
+<span class="rating">★ 8.1</span>
+<span>1 Season</span>
 </div>
 </div>
 </div>
 
 
-<div class="movie-card">
+<div class="card">
 <div class="poster">
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80">
-<div class="badge">NEW</div>
-<div class="watch-icon">▶</div>
+<div class="play">▶</div>
+<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80">
 </div>
 <div class="card-info">
-<div class="card-title">Hidden World</div>
+<div class="card-title">Wild Earth</div>
 <div class="card-meta">
-<span>Fantasy</span>
-<span class="card-rating">★ 8.1</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">After Midnight</div>
-<div class="card-meta">
-<span>Thriller</span>
-<span class="card-rating">★ 8.0</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">Summer Nights</div>
-<div class="card-meta">
-<span>Romance</span>
-<span class="card-rating">★ 7.9</span>
+<span class="rating">★ 8.6</span>
+<span>5 Seasons</span>
 </div>
 </div>
 </div>
@@ -1157,192 +1209,20 @@ Explore stories, genres and entertainment — all in one place.
 </section>
 
 
-<!-- FEATURE -->
-
-<div class="feature-strip">
-
-<div class="feature-box">
-
-<div class="feature-content">
-
-<div class="small-label">
-Discover something new
-</div>
-
-<h2>Stories worth remembering.</h2>
-
-<p>
-From powerful dramas to unforgettable thrillers,
-discover your next favorite story on STAR REWIND.
-</p>
-
-<a href="#series" class="primary-btn">
-Browse Series →
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- SERIES -->
-
-<section class="section" id="series">
-
-<div class="section-header">
-
-<h2 class="section-title">
-📺 <span>Series</span>
-</h2>
-
-<a href="#" class="view-all">Browse series →</a>
-
-</div>
-
-
-<div class="switcher">
-
-<button class="switch-btn active">All Series</button>
-<button class="switch-btn">Popular</button>
-<button class="switch-btn">New</button>
-
-</div>
-
-
-<div class="category-bar">
-
-<button class="category active">All</button>
-<button class="category">Hollywood</button>
-<button class="category">Turkish</button>
-<button class="category">Korean / K-Drama</button>
-<button class="category">Bollywood</button>
-<button class="category">Crime</button>
-<button class="category">Fantasy</button>
-<button class="category">Romance</button>
-<button class="category">Drama</button>
-
-</div>
-
-<br>
-
-
-<div class="movie-grid">
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=700&q=80">
-<div class="badge">POPULAR</div>
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">The Beginning</div>
-<div class="card-meta">
-<span>Drama • S1</span>
-<span class="card-rating">★ 9.1</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">Hidden Truth</div>
-<div class="card-meta">
-<span>Crime • S2</span>
-<span class="card-rating">★ 8.9</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">First Love</div>
-<div class="card-meta">
-<span>Korean • S1</span>
-<span class="card-rating">★ 8.8</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1535016120720-40c646be5580?auto=format&fit=crop&w=700&q=80">
-<div class="badge">NEW</div>
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">Empire</div>
-<div class="card-meta">
-<span>Turkish • S1</span>
-<span class="card-rating">★ 8.7</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">The Detective</div>
-<div class="card-meta">
-<span>Crime • S3</span>
-<span class="card-rating">★ 8.6</span>
-</div>
-</div>
-</div>
-
-
-<div class="movie-card">
-<div class="poster">
-<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80">
-<div class="watch-icon">▶</div>
-</div>
-<div class="card-info">
-<div class="card-title">Beyond Time</div>
-<div class="card-meta">
-<span>Sci-Fi • S1</span>
-<span class="card-rating">★ 8.4</span>
-</div>
-</div>
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="footer-inner">
+<div class="footer-top">
 
 <div class="footer-brand">
 
-<div class="logo">
-<span class="logo-mark">★</span>STAR <span>REWIND</span>
-</div>
+<a class="logo" href="#">
+STAR <span>REWIND</span>
+</a>
 
 <p>
-A cinematic destination for discovering movies,
-series and entertainment from around the world.
+A cinematic destination for discovering unforgettable movies, series and stories from around the world.
 </p>
 
 </div>
@@ -1350,37 +1230,26 @@ series and entertainment from around the world.
 
 <div class="footer-links">
 
-<div class="footer-column">
+<div>
 
-<h4>Explore</h4>
+<h4>EXPLORE</h4>
 
 <a href="#movies">Movies</a>
 <a href="#series">Series</a>
 <a href="#trending">Trending</a>
+<a href="#">New Releases</a>
 
 </div>
 
 
-<div class="footer-column">
+<div>
 
-<h4>Genres</h4>
+<h4>GENRES</h4>
 
 <a href="#">Action</a>
 <a href="#">Romance</a>
 <a href="#">Thriller</a>
-<a href="#">Drama</a>
-
-</div>
-
-
-<div class="footer-column">
-
-<h4>Regions</h4>
-
-<a href="#">Hollywood</a>
-<a href="#">Bollywood</a>
-<a href="#">Turkish</a>
-<a href="#">Korean</a>
+<a href="#">Fantasy</a>
 
 </div>
 
@@ -1390,32 +1259,26 @@ series and entertainment from around the world.
 
 
 <div class="copyright">
-
 © 2026 STAR REWIND. All rights reserved.
-
 </div>
 
 </footer>
 
 
-<!-- SEARCH -->
+<!-- ================= SEARCH ================= -->
 
 <div class="search-overlay" id="searchOverlay">
 
-<div class="search-box">
+<button class="close-search" onclick="closeSearch()">×</button>
 
-<div class="search-top">
+<div class="search-box">
 
 <input
 type="text"
 id="searchInput"
-placeholder="Search movies, series, genres..."
-autofocus
+placeholder="Search movies, series..."
+autocomplete="off"
 >
-
-<button class="close-search" onclick="closeSearch()">✕</button>
-
-</div>
 
 </div>
 
@@ -1424,16 +1287,16 @@ autofocus
 
 <script>
 
-/* HEADER EFFECT */
+/* HEADER */
 
 window.addEventListener("scroll",function(){
 
 const header=document.getElementById("header");
 
-if(window.scrollY>30){
-header.classList.add("scrolled");
+if(window.scrollY>40){
+    header.classList.add("scrolled");
 }else{
-header.classList.remove("scrolled");
+    header.classList.remove("scrolled");
 }
 
 });
@@ -1445,7 +1308,7 @@ function openSearch(){
 
 document
 .getElementById("searchOverlay")
-.classList.add("open");
+.classList.add("show");
 
 document
 .getElementById("searchInput")
@@ -1453,53 +1316,36 @@ document
 
 }
 
-
 function closeSearch(){
 
 document
 .getElementById("searchOverlay")
-.classList.remove("open");
+.classList.remove("show");
 
 }
 
 
-document
-.getElementById("searchOverlay")
-.addEventListener("click",function(e){
+/* ESCAPE SEARCH */
 
-if(e.target===this){
-closeSearch();
-}
-
-});
-
-
-document
-.getElementById("searchInput")
-.addEventListener("keydown",function(e){
+document.addEventListener("keydown",function(e){
 
 if(e.key==="Escape"){
-closeSearch();
+    closeSearch();
 }
 
 });
 
 
-/* CATEGORY BUTTONS */
+/* GENRES */
 
-document
-.querySelectorAll(".category")
-.forEach(function(button){
+document.querySelectorAll(".genre").forEach(button=>{
 
 button.addEventListener("click",function(){
 
-const group=this.parentElement;
+const parent=this.parentElement;
 
-group
-.querySelectorAll(".category")
-.forEach(function(btn){
-btn.classList.remove("active");
-});
+parent.querySelectorAll(".genre")
+.forEach(item=>item.classList.remove("active"));
 
 this.classList.add("active");
 
@@ -1510,17 +1356,13 @@ this.classList.add("active");
 
 /* SERIES SWITCH */
 
-document
-.querySelectorAll(".switch-btn")
-.forEach(function(button){
+document.querySelectorAll(".switcher button").forEach(button=>{
 
 button.addEventListener("click",function(){
 
 document
-.querySelectorAll(".switch-btn")
-.forEach(function(btn){
-btn.classList.remove("active");
-});
+.querySelectorAll(".switcher button")
+.forEach(item=>item.classList.remove("active"));
 
 this.classList.add("active");
 
@@ -1529,19 +1371,31 @@ this.classList.add("active");
 });
 
 
-/* CARD INTERACTION */
+/* MOBILE MENU */
 
-document
-.querySelectorAll(".movie-card")
-.forEach(function(card){
+function toggleMenu(){
 
-card.addEventListener("click",function(){
+const nav=document.querySelector(".nav");
 
-console.log("Movie selected:",this.innerText);
+if(nav.style.display==="flex"){
 
-});
+nav.style.display="none";
 
-});
+}else{
+
+nav.style.display="flex";
+nav.style.position="absolute";
+nav.style.top="68px";
+nav.style.left="0";
+nav.style.width="100%";
+nav.style.padding="25px";
+nav.style.background="#080808";
+nav.style.flexDirection="column";
+nav.style.borderBottom="1px solid rgba(212,175,55,.2)";
+
+}
+
+}
 
 </script>
 
