@@ -4,29 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>STAR REWIND — Cinema Beyond Limits</title>
+<title>STAR REWIND | Movies & Series</title>
 
-<meta name="description" content="STAR REWIND — Discover movies, series and unforgettable stories.">
-<meta name="theme-color" content="#050505">
+<meta name="description" content="STAR REWIND - Discover movies and series, watch trailers and access authorized downloads.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
     --black:#050505;
-    --black2:#0b0b0b;
+    --black2:#0a0a0a;
     --panel:#111111;
     --panel2:#171717;
     --gold:#d4af37;
-    --gold-light:#f0d878;
-    --gold-dark:#8c6f1f;
-    --white:#ffffff;
-    --muted:#9a9a9a;
-    --border:rgba(212,175,55,.18);
+    --gold2:#f3d56b;
+    --white:#f8f8f8;
+    --muted:#999;
+    --line:rgba(255,255,255,.08);
 }
 
 *{
@@ -46,45 +44,42 @@ body{
     overflow-x:hidden;
 }
 
-/* ================= HEADER ================= */
+button{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* HEADER */
 
 header{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:78px;
+    height:76px;
     z-index:1000;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 5%;
-
-    background:linear-gradient(
-        to bottom,
-        rgba(0,0,0,.95),
-        rgba(0,0,0,.55),
-        transparent
-    );
-
-    transition:.4s;
+    transition:.3s;
 }
 
 header.scrolled{
-    background:rgba(5,5,5,.96);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid var(--border);
+    background:rgba(5,5,5,.94);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
 }
 
 .logo{
     font-family:"Playfair Display",serif;
     font-size:25px;
     font-weight:800;
-    letter-spacing:3px;
-    color:white;
-    text-decoration:none;
+    letter-spacing:2px;
 }
 
 .logo span{
@@ -99,110 +94,75 @@ header.scrolled{
 
 .nav a{
     color:#ddd;
-    text-decoration:none;
     font-size:14px;
-    font-weight:500;
-    transition:.3s;
+    font-weight:600;
+    transition:.25s;
 }
 
 .nav a:hover{
-    color:var(--gold);
-}
-
-.nav .active{
-    color:var(--gold);
+    color:var(--gold2);
 }
 
 .header-actions{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:12px;
 }
 
-.search-btn,
-.menu-btn{
+.icon-btn{
     width:42px;
     height:42px;
-    border:1px solid rgba(255,255,255,.15);
     border-radius:50%;
+    border:1px solid var(--line);
     background:rgba(255,255,255,.05);
     color:white;
     cursor:pointer;
-    font-size:17px;
-    transition:.3s;
+    transition:.25s;
 }
 
-.search-btn:hover,
-.menu-btn:hover{
+.icon-btn:hover{
     border-color:var(--gold);
-    color:var(--gold);
+    color:var(--gold2);
 }
 
 .menu-btn{
     display:none;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 
 .hero{
-    min-height:100vh;
+    min-height:92vh;
     position:relative;
     display:flex;
     align-items:center;
-
+    padding:120px 5% 70px;
+    overflow:hidden;
     background:
-        linear-gradient(90deg,
-            rgba(0,0,0,1) 0%,
-            rgba(0,0,0,.88) 35%,
-            rgba(0,0,0,.35) 70%,
-            rgba(0,0,0,.7) 100%
-        ),
-        linear-gradient(0deg,
-            #050505 0%,
-            transparent 30%
-        ),
-        url("https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=2200&q=90");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 65% 45%,
-            rgba(212,175,55,.10),
-            transparent 30%
-        );
-
-    pointer-events:none;
+        linear-gradient(90deg,#050505 0%,rgba(5,5,5,.92) 32%,rgba(5,5,5,.3) 75%,#050505 100%),
+        linear-gradient(0deg,#050505 0%,transparent 30%),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
 }
 
 .hero-content{
+    max-width:700px;
     position:relative;
     z-index:2;
-    max-width:650px;
-    margin-left:8%;
-    padding-top:60px;
 }
 
-.hero-kicker{
-    color:var(--gold);
+.hero-label{
+    color:var(--gold2);
+    letter-spacing:4px;
     font-size:12px;
-    font-weight:700;
-    letter-spacing:5px;
+    font-weight:800;
     margin-bottom:20px;
 }
 
 .hero h1{
     font-family:"Playfair Display",serif;
-    font-size:clamp(55px,8vw,105px);
-    line-height:.92;
-    letter-spacing:-3px;
+    font-size:clamp(48px,7vw,88px);
+    line-height:.98;
     margin-bottom:25px;
 }
 
@@ -211,121 +171,123 @@ header.scrolled{
 }
 
 .hero p{
-    max-width:560px;
-    color:#c7c7c7;
-    font-size:16px;
+    color:#c4c4c4;
     line-height:1.8;
-    margin-bottom:32px;
+    max-width:600px;
+    margin-bottom:30px;
 }
 
-.hero-buttons{
+.hero-meta{
     display:flex;
-    gap:15px;
+    gap:18px;
+    color:#ddd;
+    font-size:13px;
+    margin-bottom:28px;
+}
+
+.hero-meta strong{
+    color:var(--gold2);
 }
 
 .btn{
-    padding:14px 25px;
-    border-radius:4px;
-    border:none;
+    border:0;
+    padding:14px 23px;
+    border-radius:7px;
     cursor:pointer;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.5px;
-    transition:.3s;
+    font-weight:800;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:.25s;
 }
 
 .btn-gold{
     background:var(--gold);
-    color:#050505;
+    color:#080808;
 }
 
 .btn-gold:hover{
-    background:var(--gold-light);
+    background:var(--gold2);
     transform:translateY(-2px);
-    box-shadow:0 10px 30px rgba(212,175,55,.22);
 }
 
 .btn-dark{
-    background:rgba(255,255,255,.07);
+    background:rgba(255,255,255,.09);
     color:white;
-    border:1px solid rgba(255,255,255,.18);
-    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.14);
+    margin-left:8px;
 }
 
 .btn-dark:hover{
-    border-color:var(--gold);
-    color:var(--gold);
+    background:rgba(255,255,255,.16);
 }
 
-/* ================= GENERAL ================= */
+/* MAIN */
 
-section{
-    padding:85px 5%;
+main{
+    padding-bottom:80px;
 }
 
-.section-head{
+.section{
+    padding:65px 5% 0;
+}
+
+.section-heading{
     display:flex;
-    justify-content:space-between;
     align-items:end;
-    margin-bottom:30px;
+    justify-content:space-between;
+    margin-bottom:25px;
 }
 
-.section-title{
-    font-family:"Playfair Display",serif;
-    font-size:34px;
+.section-heading h2{
+    font-size:25px;
 }
 
-.section-title span{
+.section-heading h2 span{
     color:var(--gold);
 }
 
-.section-subtitle{
-    color:var(--muted);
+.section-heading a{
+    color:var(--gold2);
     font-size:13px;
-    margin-top:7px;
+    font-weight:700;
 }
 
-.view-all{
-    color:var(--gold);
-    text-decoration:none;
-    font-size:13px;
-}
+/* CATEGORY BAR */
 
-/* ================= GENRES ================= */
-
-.genre-bar{
+.category-bar{
     display:flex;
-    gap:10px;
+    gap:9px;
     overflow-x:auto;
-    padding-bottom:8px;
-    margin-bottom:35px;
+    padding-bottom:15px;
     scrollbar-width:none;
 }
 
-.genre-bar::-webkit-scrollbar{
+.category-bar::-webkit-scrollbar{
     display:none;
 }
 
-.genre{
+.category{
     white-space:nowrap;
-    padding:9px 17px;
-    border-radius:30px;
-    border:1px solid rgba(255,255,255,.1);
+    background:#111;
     color:#aaa;
-    background:#0d0d0d;
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:9px 15px;
     cursor:pointer;
     font-size:12px;
-    transition:.3s;
+    font-weight:700;
+    transition:.25s;
 }
 
-.genre:hover,
-.genre.active{
-    color:#050505;
+.category:hover,
+.category.active{
     background:var(--gold);
+    color:#050505;
     border-color:var(--gold);
 }
 
-/* ================= MOVIE GRID ================= */
+/* CARDS */
 
 .movie-grid{
     display:grid;
@@ -334,40 +296,78 @@ section{
 }
 
 .card{
-    position:relative;
-    cursor:pointer;
     min-width:0;
+    cursor:pointer;
+    position:relative;
 }
 
 .poster{
-    position:relative;
     aspect-ratio:2/3;
+    border-radius:10px;
     overflow:hidden;
-    border-radius:5px;
-    background:#111;
+    background:#151515;
+    position:relative;
+    border:1px solid rgba(255,255,255,.06);
 }
 
 .poster img{
     width:100%;
     height:100%;
     object-fit:cover;
-    display:block;
-    transition:.5s;
+    transition:.45s;
 }
 
 .card:hover .poster img{
     transform:scale(1.07);
 }
 
-.poster::after{
-    content:"";
+.poster-overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.9),
-        transparent 50%
-    );
+    background:linear-gradient(0deg,rgba(0,0,0,.92),transparent 55%);
+    opacity:0;
+    transition:.3s;
+}
+
+.card:hover .poster-overlay{
+    opacity:1;
+}
+
+.card-actions{
+    position:absolute;
+    bottom:15px;
+    left:12px;
+    right:12px;
+    display:flex;
+    gap:7px;
+    opacity:0;
+    transform:translateY(8px);
+    transition:.3s;
+}
+
+.card:hover .card-actions{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card-actions button{
+    flex:1;
+    border:0;
+    border-radius:6px;
+    padding:9px 5px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:800;
+}
+
+.trailer-btn{
+    background:white;
+    color:#111;
+}
+
+.download-btn{
+    background:var(--gold);
+    color:#111;
 }
 
 .card-info{
@@ -376,7 +376,7 @@ section{
 
 .card-title{
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -385,265 +385,242 @@ section{
 .card-meta{
     display:flex;
     gap:8px;
-    margin-top:6px;
+    margin-top:7px;
     color:#777;
     font-size:11px;
 }
 
 .rating{
-    color:var(--gold);
+    color:var(--gold2);
 }
 
-.badge{
-    position:absolute;
-    top:10px;
-    left:10px;
-    z-index:3;
-    background:var(--gold);
-    color:#050505;
-    padding:5px 8px;
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:1px;
-    border-radius:2px;
+/* FEATURE STRIP */
+
+.feature-strip{
+    margin:70px 5% 0;
+    padding:35px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:
+        radial-gradient(circle at 80% 50%,rgba(212,175,55,.15),transparent 35%),
+        #0d0d0d;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
-
-.play{
-    position:absolute;
-    z-index:4;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-40%) scale(.7);
-
-    width:50px;
-    height:50px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-    background:rgba(212,175,55,.95);
-    color:#050505;
-
-    opacity:0;
-    transition:.3s;
-}
-
-.card:hover .play{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-}
-
-/* ================= GOLD DIVIDER ================= */
-
-.gold-line{
-    width:70px;
-    height:2px;
-    background:var(--gold);
-    margin-top:12px;
-}
-
-/* ================= FEATURE ================= */
 
 .feature{
-    min-height:430px;
-    position:relative;
     display:flex;
-    align-items:center;
-
-    background:
-        linear-gradient(90deg,#050505 5%,rgba(5,5,5,.88) 40%,rgba(5,5,5,.25)),
-        url("https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=2200&q=85");
-
-    background-size:cover;
-    background-position:center;
-
-    margin:20px 5% 70px;
-    border:1px solid var(--border);
-    overflow:hidden;
+    gap:15px;
 }
 
-.feature-content{
-    max-width:540px;
-    padding:60px;
-}
-
-.feature-label{
+.feature-icon{
     color:var(--gold);
-    letter-spacing:4px;
-    font-size:11px;
-    font-weight:700;
+    font-size:25px;
 }
 
-.feature h2{
-    font-family:"Playfair Display",serif;
-    font-size:48px;
-    margin:15px 0;
+.feature h3{
+    font-size:15px;
+    margin-bottom:7px;
 }
 
 .feature p{
-    color:#aaa;
-    line-height:1.7;
-    font-size:14px;
+    color:#777;
+    font-size:12px;
+    line-height:1.6;
 }
 
-/* ================= SERIES SWITCH ================= */
+/* MODAL */
 
-.switcher{
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(14px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
     display:flex;
-    border:1px solid var(--border);
-    border-radius:30px;
-    overflow:hidden;
 }
 
-.switcher button{
-    border:0;
-    background:transparent;
-    color:#888;
-    padding:9px 17px;
+.modal-box{
+    width:min(1050px,100%);
+    max-height:92vh;
+    overflow:auto;
+    background:#101010;
+    border:1px solid var(--line);
+    border-radius:15px;
+    position:relative;
+    box-shadow:0 30px 100px rgba(0,0,0,.8);
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(0,0,0,.65);
+    color:white;
+    border:1px solid rgba(255,255,255,.15);
     cursor:pointer;
-    font-size:11px;
+    z-index:10;
 }
 
-.switcher button.active{
-    background:var(--gold);
-    color:#050505;
+.detail-cover{
+    height:400px;
+    position:relative;
+    background-size:cover;
+    background-position:center;
 }
 
-/* ================= SEARCH ================= */
+.detail-cover:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg,#101010 0%,transparent 65%);
+}
+
+.detail-content{
+    padding:0 35px 35px;
+    margin-top:-70px;
+    position:relative;
+    z-index:2;
+}
+
+.detail-content h2{
+    font-family:"Playfair Display",serif;
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.detail-meta{
+    color:#999;
+    display:flex;
+    gap:14px;
+    margin-bottom:20px;
+    font-size:13px;
+}
+
+.detail-description{
+    color:#bbb;
+    line-height:1.8;
+    max-width:800px;
+    margin-bottom:25px;
+}
+
+/* TRAILER */
+
+.trailer-box{
+    width:min(1000px,100%);
+    background:#090909;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+}
+
+.trailer-frame{
+    width:100%;
+    aspect-ratio:16/9;
+    border:0;
+}
+
+/* SEARCH */
 
 .search-overlay{
     position:fixed;
     inset:0;
-    z-index:2000;
+    z-index:4000;
     background:rgba(0,0,0,.96);
-    backdrop-filter:blur(20px);
-
     display:none;
-    align-items:center;
-    justify-content:center;
+    padding:100px 7%;
 }
 
 .search-overlay.show{
-    display:flex;
+    display:block;
 }
 
-.search-box{
-    width:min(700px,90%);
+.search-close{
+    position:absolute;
+    top:30px;
+    right:5%;
 }
 
-.search-box input{
+.search-input{
     width:100%;
     background:transparent;
     border:0;
-    border-bottom:2px solid var(--gold);
+    border-bottom:2px solid #333;
+    padding:20px 0;
     color:white;
-    padding:15px 0;
-    font-size:30px;
+    font-size:40px;
     outline:none;
 }
 
-.search-box input::placeholder{
-    color:#555;
+.search-input:focus{
+    border-color:var(--gold);
 }
 
-.close-search{
-    position:absolute;
-    top:30px;
-    right:40px;
-    background:none;
-    border:0;
-    color:white;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
-    padding:70px 5% 35px;
-    border-top:1px solid rgba(255,255,255,.07);
-    background:#030303;
+    border-top:1px solid var(--line);
+    padding:50px 5%;
+    color:#666;
+    margin-top:70px;
 }
 
-.footer-top{
-    display:flex;
-    justify-content:space-between;
-    gap:40px;
-    margin-bottom:60px;
-}
-
-.footer-brand{
-    max-width:350px;
-}
-
-.footer-brand .logo{
-    display:block;
-    margin-bottom:18px;
-}
-
-.footer-brand p{
-    color:#777;
-    line-height:1.7;
-    font-size:13px;
-}
-
-.footer-links{
-    display:flex;
-    gap:70px;
-}
-
-.footer-links h4{
-    font-size:12px;
-    color:var(--gold);
-    margin-bottom:18px;
-    letter-spacing:1px;
-}
-
-.footer-links a{
-    display:block;
-    color:#777;
-    text-decoration:none;
-    font-size:12px;
-    margin-bottom:11px;
-}
-
-.footer-links a:hover{
+.footer-logo{
     color:white;
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+    margin-bottom:12px;
 }
 
-.copyright{
-    border-top:1px solid rgba(255,255,255,.07);
-    padding-top:25px;
-    color:#555;
-    font-size:11px;
+.footer-logo span{
+    color:var(--gold);
 }
 
-/* ================= MOBILE ================= */
+footer p{
+    font-size:12px;
+    max-width:500px;
+    line-height:1.7;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:1100px){
-
     .movie-grid{
         grid-template-columns:repeat(4,1fr);
     }
-
 }
 
 @media(max-width:750px){
 
     header{
-        height:68px;
-        padding:0 5%;
-    }
-
-    .logo{
-        font-size:20px;
-        letter-spacing:2px;
+        height:65px;
     }
 
     .nav{
         display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#080808;
+        padding:20px;
+        flex-direction:column;
+        border-bottom:1px solid var(--line);
+    }
+
+    .nav.open{
+        display:flex;
     }
 
     .menu-btn{
@@ -652,74 +629,54 @@ footer{
 
     .hero{
         min-height:90vh;
-        background-position:60% center;
-    }
-
-    .hero-content{
-        margin-left:6%;
-        margin-right:6%;
-        padding-top:100px;
+        padding-top:120px;
+        background:
+            linear-gradient(0deg,#050505 5%,rgba(5,5,5,.55) 70%),
+            url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=85")
+            center/cover;
     }
 
     .hero h1{
-        font-size:58px;
-    }
-
-    .hero p{
-        font-size:14px;
-    }
-
-    section{
-        padding:60px 5%;
-    }
-
-    .section-title{
-        font-size:28px;
+        font-size:52px;
     }
 
     .movie-grid{
         grid-template-columns:repeat(2,1fr);
-        gap:15px;
+        gap:14px;
     }
 
-    .feature{
-        margin:10px 5% 50px;
-        min-height:400px;
+    .card-actions{
+        opacity:1;
+        transform:none;
     }
 
-    .feature-content{
-        padding:30px;
+    .feature-strip{
+        grid-template-columns:1fr;
+        padding:25px;
     }
 
-    .feature h2{
-        font-size:35px;
+    .detail-cover{
+        height:260px;
     }
 
-    .footer-top{
-        flex-direction:column;
+    .detail-content{
+        padding:0 20px 25px;
     }
 
-    .footer-links{
-        gap:40px;
+    .detail-content h2{
+        font-size:30px;
+    }
+
+    .search-input{
+        font-size:25px;
     }
 
 }
 
-@media(max-width:420px){
-
-    .hero h1{
-        font-size:50px;
+@media(min-width:751px){
+    .mobile-only{
+        display:none;
     }
-
-    .hero-buttons{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .btn{
-        width:180px;
-    }
-
 }
 
 </style>
@@ -727,675 +684,757 @@ footer{
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header id="header">
 
-<a href="#" class="logo">
-STAR <span>REWIND</span>
-</a>
+    <a href="#" class="logo">
+        STAR <span>REWIND</span>
+    </a>
 
-<nav class="nav">
-<a href="#home" class="active">Home</a>
-<a href="#movies">Movies</a>
-<a href="#series">Series</a>
-<a href="#trending">Trending</a>
-</nav>
+    <nav class="nav" id="nav">
+        <a href="#home">Home</a>
+        <a href="#movies">Movies</a>
+        <a href="#series">Series</a>
+        <a href="#trending">Trending</a>
+    </nav>
 
-<div class="header-actions">
+    <div class="header-actions">
 
-<button class="search-btn" onclick="openSearch()">⌕</button>
+        <button class="icon-btn" onclick="openSearch()">⌕</button>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <button class="icon-btn menu-btn" onclick="toggleMenu()">☰</button>
 
-</div>
+    </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
-
 <section class="hero" id="home">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<div class="hero-kicker">
-STAR REWIND ORIGINAL
-</div>
+        <div class="hero-label">
+            STAR REWIND ORIGINAL
+        </div>
 
-<h1>
-Cinema<br>
-<span>Beyond Limits.</span>
-</h1>
+        <h1>
+            Cinema<br>
+            <span>Beyond Limits.</span>
+        </h1>
 
-<p>
-Discover unforgettable movies, powerful stories and extraordinary series from around the world — all in one cinematic destination.
-</p>
+        <div class="hero-meta">
+            <span>2026</span>
+            <span>•</span>
+            <strong>IMDb 8.9</strong>
+            <span>•</span>
+            <span>Action / Drama</span>
+        </div>
 
-<div class="hero-buttons">
+        <p>
+            Discover the movies and series everyone is talking about.
+            Explore stories, watch official trailers and find authorized
+            downloads in one cinematic destination.
+        </p>
 
-<button class="btn btn-gold"
-onclick="document.getElementById('movies').scrollIntoView()">
-EXPLORE MOVIES
-</button>
+        <button class="btn btn-gold" onclick="openTrailer()">
+            ▶ WATCH TRAILER
+        </button>
 
-<button class="btn btn-dark"
-onclick="document.getElementById('series').scrollIntoView()">
-EXPLORE SERIES
-</button>
+        <a href="#movies" class="btn btn-dark">
+            EXPLORE MOVIES
+        </a>
 
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ================= TRENDING ================= -->
-
-<section id="trending">
-
-<div class="section-head">
-
-<div>
-<div class="section-title">
-Trending <span>Now</span>
-</div>
-<div class="gold-line"></div>
-</div>
-
-<a href="#" class="view-all">VIEW ALL →</a>
-
-</div>
-
-
-<div class="movie-grid">
-
-<div class="card">
-<div class="poster">
-<span class="badge">#1</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Last Horizon</div>
-<div class="card-meta">
-<span class="rating">★ 8.7</span>
-<span>2026</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<span class="badge">#2</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Midnight City</div>
-<div class="card-meta">
-<span class="rating">★ 8.4</span>
-<span>2026</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<span class="badge">#3</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Hidden World</div>
-<div class="card-meta">
-<span class="rating">★ 8.2</span>
-<span>2025</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<span class="badge">#4</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Empire of Shadows</div>
-<div class="card-meta">
-<span class="rating">★ 8.1</span>
-<span>2025</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<span class="badge">#5</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">After the Storm</div>
-<div class="card-meta">
-<span class="rating">★ 8.0</span>
-<span>2025</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<span class="badge">#6</span>
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Golden Hour</div>
-<div class="card-meta">
-<span class="rating">★ 7.9</span>
-<span>2025</span>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= MOVIES ================= -->
-
-<section id="movies">
-
-<div class="section-head">
-
-<div>
-<div class="section-title">
-Explore <span>Movies</span>
-</div>
-<div class="gold-line"></div>
-</div>
-
-<a href="#" class="view-all">SEE ALL →</a>
-
-</div>
-
-
-<div class="genre-bar">
-
-<button class="genre active">All</button>
-<button class="genre">Hollywood</button>
-<button class="genre">Bollywood</button>
-<button class="genre">Turkish</button>
-<button class="genre">Korean</button>
-<button class="genre">Action</button>
-<button class="genre">Romance</button>
-<button class="genre">Thriller</button>
-<button class="genre">Horror</button>
-<button class="genre">Fantasy</button>
-<button class="genre">Comedy</button>
-<button class="genre">Drama</button>
-<button class="genre">Sci-Fi</button>
-<button class="genre">Crime</button>
-
-</div>
-
-
-<div class="movie-grid">
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Final Chapter</div>
-<div class="card-meta">
-<span class="rating">★ 8.6</span>
-<span>Action</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Beyond the Night</div>
-<div class="card-meta">
-<span class="rating">★ 8.3</span>
-<span>Thriller</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Love in Paris</div>
-<div class="card-meta">
-<span class="rating">★ 8.0</span>
-<span>Romance</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Dark Kingdom</div>
-<div class="card-meta">
-<span class="rating">★ 8.5</span>
-<span>Fantasy</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Lost Galaxy</div>
-<div class="card-meta">
-<span class="rating">★ 8.7</span>
-<span>Sci-Fi</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Stranger</div>
-<div class="card-meta">
-<span class="rating">★ 7.9</span>
-<span>Drama</span>
-</div>
-</div>
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- ================= FEATURE ================= -->
-
-<div class="feature">
-
-<div class="feature-content">
-
-<div class="feature-label">
-THE CINEMA EXPERIENCE
-</div>
-
-<h2>
-Stories worth remembering.
-</h2>
-
-<p>
-From unforgettable romances to breathtaking adventures, STAR REWIND brings together stories from different cultures, industries and generations.
-</p>
-
-<br>
-
-<button class="btn btn-gold"
-onclick="openSearch()">
-DISCOVER MORE
-</button>
-
-</div>
-
-</div>
+<main>
 
 
-<!-- ================= SERIES ================= -->
+<!-- TRENDING -->
 
-<section id="series">
+<section class="section" id="trending">
 
-<div class="section-head">
+    <div class="section-heading">
 
-<div>
-<div class="section-title">
-Binge-worthy <span>Series</span>
-</div>
-<div class="gold-line"></div>
-</div>
+        <h2>🔥 Trending <span>Now</span></h2>
 
-<div class="switcher">
+        <a href="#movies">View all →</a>
 
-<button class="active">Popular</button>
-<button>New</button>
-<button>Top Rated</button>
+    </div>
 
-</div>
-
-</div>
-
-
-<div class="genre-bar">
-
-<button class="genre active">All</button>
-<button class="genre">Hollywood</button>
-<button class="genre">Turkish</button>
-<button class="genre">K-Drama</button>
-<button class="genre">Fantasy</button>
-<button class="genre">Crime</button>
-<button class="genre">Romance</button>
-<button class="genre">Drama</button>
-<button class="genre">Mystery</button>
-
-</div>
-
-
-<div class="movie-grid">
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">House of Secrets</div>
-<div class="card-meta">
-<span class="rating">★ 9.0</span>
-<span>3 Seasons</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1574267432644-f610f5f0a2a4?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Crown</div>
-<div class="card-meta">
-<span class="rating">★ 8.8</span>
-<span>4 Seasons</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Behind the Door</div>
-<div class="card-meta">
-<span class="rating">★ 8.5</span>
-<span>2 Seasons</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">City Lights</div>
-<div class="card-meta">
-<span class="rating">★ 8.3</span>
-<span>3 Seasons</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">The Journey</div>
-<div class="card-meta">
-<span class="rating">★ 8.1</span>
-<span>1 Season</span>
-</div>
-</div>
-</div>
-
-
-<div class="card">
-<div class="poster">
-<div class="play">▶</div>
-<img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80">
-</div>
-<div class="card-info">
-<div class="card-title">Wild Earth</div>
-<div class="card-meta">
-<span class="rating">★ 8.6</span>
-<span>5 Seasons</span>
-</div>
-</div>
-</div>
-
-</div>
+    <div class="movie-grid" id="trendingGrid"></div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- MOVIES -->
+
+<section class="section" id="movies">
+
+    <div class="section-heading">
+
+        <h2>🎬 <span>Movies</span></h2>
+
+    </div>
+
+    <div class="category-bar" id="movieCategories">
+
+        <button class="category active" onclick="filterMovies('All',this)">All</button>
+        <button class="category" onclick="filterMovies('Hollywood',this)">Hollywood</button>
+        <button class="category" onclick="filterMovies('Bollywood',this)">Bollywood</button>
+        <button class="category" onclick="filterMovies('Turkish',this)">Turkish</button>
+        <button class="category" onclick="filterMovies('Korean',this)">Korean</button>
+        <button class="category" onclick="filterMovies('Action',this)">Action</button>
+        <button class="category" onclick="filterMovies('Horror',this)">Horror</button>
+        <button class="category" onclick="filterMovies('Romance',this)">Romance</button>
+        <button class="category" onclick="filterMovies('Comedy',this)">Comedy</button>
+        <button class="category" onclick="filterMovies('Thriller',this)">Thriller</button>
+        <button class="category" onclick="filterMovies('Sci-Fi',this)">Sci-Fi</button>
+        <button class="category" onclick="filterMovies('Drama',this)">Drama</button>
+
+    </div>
+
+    <br>
+
+    <div class="movie-grid" id="movieGrid"></div>
+
+</section>
+
+
+<!-- FEATURE -->
+
+<div class="feature-strip">
+
+    <div class="feature">
+
+        <div class="feature-icon">🎬</div>
+
+        <div>
+            <h3>Discover Great Stories</h3>
+            <p>Explore movies and series across international genres.</p>
+        </div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">▶</div>
+
+        <div>
+            <h3>Watch Trailers</h3>
+            <p>Preview titles with official trailers before downloading.</p>
+        </div>
+
+    </div>
+
+    <div class="feature">
+
+        <div class="feature-icon">⬇</div>
+
+        <div>
+            <h3>Authorized Downloads</h3>
+            <p>Access download options for content you are authorized to distribute.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SERIES -->
+
+<section class="section" id="series">
+
+    <div class="section-heading">
+
+        <h2>📺 <span>Series</span></h2>
+
+    </div>
+
+    <div class="category-bar">
+
+        <button class="category active">All</button>
+        <button class="category">Hollywood</button>
+        <button class="category">Bollywood</button>
+        <button class="category">Turkish</button>
+        <button class="category">Korean / K-Drama</button>
+        <button class="category">Action</button>
+        <button class="category">Romance</button>
+        <button class="category">Thriller</button>
+        <button class="category">Drama</button>
+        <button class="category">Fantasy</button>
+
+    </div>
+
+    <br>
+
+    <div class="movie-grid" id="seriesGrid"></div>
+
+</section>
+
+</main>
+
 
 <footer>
 
-<div class="footer-top">
+    <div class="footer-logo">
+        STAR <span>REWIND</span>
+    </div>
 
-<div class="footer-brand">
+    <p>
+        STAR REWIND is a cinematic discovery platform for movies and series.
+        Trailer and download links should only point to content and services
+        you are legally authorized to provide.
+    </p>
 
-<a class="logo" href="#">
-STAR <span>REWIND</span>
-</a>
+    <br>
 
-<p>
-A cinematic destination for discovering unforgettable movies, series and stories from around the world.
-</p>
-
-</div>
-
-
-<div class="footer-links">
-
-<div>
-
-<h4>EXPLORE</h4>
-
-<a href="#movies">Movies</a>
-<a href="#series">Series</a>
-<a href="#trending">Trending</a>
-<a href="#">New Releases</a>
-
-</div>
-
-
-<div>
-
-<h4>GENRES</h4>
-
-<a href="#">Action</a>
-<a href="#">Romance</a>
-<a href="#">Thriller</a>
-<a href="#">Fantasy</a>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="copyright">
-© 2026 STAR REWIND. All rights reserved.
-</div>
+    <p>
+        © 2026 STAR REWIND. All rights reserved.
+    </p>
 
 </footer>
 
 
-<!-- ================= SEARCH ================= -->
+<!-- DETAIL MODAL -->
+
+<div class="modal" id="detailModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal('detailModal')">✕</button>
+
+        <div class="detail-cover" id="detailCover"></div>
+
+        <div class="detail-content">
+
+            <h2 id="detailTitle"></h2>
+
+            <div class="detail-meta" id="detailMeta"></div>
+
+            <p class="detail-description" id="detailDescription"></p>
+
+            <button class="btn btn-gold" onclick="openTrailer()">
+                ▶ WATCH TRAILER
+            </button>
+
+            <button class="btn btn-dark" onclick="downloadMovie()">
+                ⬇ DOWNLOAD
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TRAILER MODAL -->
+
+<div class="modal" id="trailerModal">
+
+    <div class="trailer-box">
+
+        <button class="close" onclick="closeModal('trailerModal')">
+            ✕
+        </button>
+
+        <iframe
+            id="trailerFrame"
+            class="trailer-frame"
+            src=""
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</div>
+
+
+<!-- SEARCH -->
 
 <div class="search-overlay" id="searchOverlay">
 
-<button class="close-search" onclick="closeSearch()">×</button>
+    <button
+        class="icon-btn search-close"
+        onclick="closeSearch()">
+        ✕
+    </button>
 
-<div class="search-box">
+    <input
+        class="search-input"
+        id="searchInput"
+        placeholder="Search movies, series, genres..."
+        oninput="searchContent()">
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search movies, series..."
-autocomplete="off"
->
+    <br><br>
 
-</div>
+    <div class="movie-grid" id="searchResults"></div>
 
 </div>
 
 
 <script>
 
-/* HEADER */
+/* SAMPLE CONTENT */
 
-window.addEventListener("scroll",function(){
+const movies = [
 
-const header=document.getElementById("header");
+{
+title:"The Last Horizon",
+year:"2026",
+rating:"8.9",
+genre:"Action",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=85",
+description:"A mysterious journey pushes a group of survivors beyond the limits of what they thought possible.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
 
-if(window.scrollY>40){
-    header.classList.add("scrolled");
-}else{
-    header.classList.remove("scrolled");
+{
+title:"Midnight Empire",
+year:"2025",
+rating:"8.6",
+genre:"Thriller",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85",
+description:"A dangerous secret threatens to destroy a powerful empire.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"Golden Dreams",
+year:"2025",
+rating:"8.2",
+genre:"Romance",
+category:"Bollywood",
+image:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=85",
+description:"Two strangers discover that their lives are connected by an unexpected story.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"Dark Kingdom",
+year:"2026",
+rating:"9.1",
+genre:"Fantasy",
+category:"Turkish",
+image:"https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=700&q=85",
+description:"A forgotten kingdom rises again and changes the fate of everyone around it.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"Seoul Nights",
+year:"2025",
+rating:"8.8",
+genre:"Drama",
+category:"Korean",
+image:"https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=700&q=85",
+description:"A powerful Korean drama about ambition, friendship and love.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"The Haunted House",
+year:"2025",
+rating:"8.0",
+genre:"Horror",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&w=700&q=85",
+description:"A family discovers something terrifying inside their new home.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"Beyond Tomorrow",
+year:"2026",
+rating:"8.7",
+genre:"Sci-Fi",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=700&q=85",
+description:"Humanity faces an unknown future beyond the stars.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
+},
+
+{
+title:"Broken Promise",
+year:"2025",
+rating:"8.3",
+genre:"Drama",
+category:"Turkish",
+image:"https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=700&q=85",
+description:"A forgotten promise brings two families together again.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ",
+download:"#"
 }
 
-});
+];
+
+
+const series = [
+
+{
+title:"Empire of Shadows",
+year:"2026",
+rating:"9.0",
+genre:"Drama",
+category:"Turkish",
+image:"https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=85",
+description:"A family empire begins to collapse after a secret is revealed.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+},
+
+{
+title:"Seoul Story",
+year:"2025",
+rating:"9.1",
+genre:"Romance",
+category:"Korean",
+image:"https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=700&q=85",
+description:"A beautiful Korean romance filled with unexpected turns.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+},
+
+{
+title:"The Survivors",
+year:"2026",
+rating:"8.8",
+genre:"Action",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85",
+description:"A group of survivors fight to rebuild their world.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+},
+
+{
+title:"Royal Blood",
+year:"2025",
+rating:"8.9",
+genre:"Historical",
+category:"Turkish",
+image:"https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=700&q=85",
+description:"Power, loyalty and betrayal collide inside a royal family.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+},
+
+{
+title:"After Midnight",
+year:"2025",
+rating:"8.4",
+genre:"Thriller",
+category:"Hollywood",
+image:"https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=85",
+description:"One night changes everything.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+},
+
+{
+title:"Hidden Hearts",
+year:"2026",
+rating:"8.6",
+genre:"Romance",
+category:"Korean",
+image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85",
+description:"Two people discover love where they least expected it.",
+trailer:"https://www.youtube.com/embed/dQw4w9WgXcQ"
+}
+
+];
+
+
+/* RENDER CARD */
+
+function card(item,index){
+
+return `
+
+<div class="card" onclick="openDetails(${index}, '${item.category === undefined ? "series" : "movies"}')">
+
+    <div class="poster">
+
+        <img src="${item.image}" alt="${item.title}" loading="lazy">
+
+        <div class="poster-overlay"></div>
+
+        <div class="card-actions">
+
+            <button
+                class="trailer-btn"
+                onclick="event.stopPropagation(); openSpecificTrailer('${item.trailer}')">
+                ▶ Trailer
+            </button>
+
+            <button
+                class="download-btn"
+                onclick="event.stopPropagation(); authorizedDownload('${item.download || "#"}')">
+                ⬇ Download
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="card-info">
+
+        <div class="card-title">${item.title}</div>
+
+        <div class="card-meta">
+
+            <span>${item.year}</span>
+
+            <span>•</span>
+
+            <span class="rating">★ ${item.rating}</span>
+
+            <span>•</span>
+
+            <span>${item.genre}</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+`;
+
+}
+
+
+/* RENDER */
+
+function renderMovies(list=movies){
+
+document.getElementById("movieGrid").innerHTML =
+list.map((x,i)=>card(x,i)).join("");
+
+}
+
+function renderSeries(){
+
+document.getElementById("seriesGrid").innerHTML =
+series.map((x,i)=>card(x,i)).join("");
+
+}
+
+function renderTrending(){
+
+document.getElementById("trendingGrid").innerHTML =
+movies.slice(0,6).map((x,i)=>card(x,i)).join("");
+
+}
+
+renderMovies();
+renderSeries();
+renderTrending();
+
+
+/* FILTER */
+
+function filterMovies(category,button){
+
+document
+.querySelectorAll("#movieCategories .category")
+.forEach(x=>x.classList.remove("active"));
+
+button.classList.add("active");
+
+if(category==="All"){
+    renderMovies(movies);
+}else{
+
+const filtered=movies.filter(x=>
+    x.category===category ||
+    x.genre===category
+);
+
+renderMovies(filtered);
+
+}
+
+}
+
+
+/* DETAILS */
+
+let currentMovie=null;
+
+function openDetails(index,type){
+
+currentMovie = type==="movies"
+? movies[index]
+: series[index];
+
+document.getElementById("detailCover").style.backgroundImage =
+`url('${currentMovie.image}')`;
+
+document.getElementById("detailTitle").textContent =
+currentMovie.title;
+
+document.getElementById("detailMeta").innerHTML =
+`${currentMovie.year} • ⭐ ${currentMovie.rating} • ${currentMovie.genre} • ${currentMovie.category}`;
+
+document.getElementById("detailDescription").textContent =
+currentMovie.description;
+
+document.getElementById("detailModal").classList.add("show");
+
+}
+
+
+/* TRAILER */
+
+function openTrailer(){
+
+if(!currentMovie){
+
+currentMovie=movies[0];
+
+}
+
+openSpecificTrailer(currentMovie.trailer);
+
+}
+
+function openSpecificTrailer(url){
+
+document.getElementById("trailerFrame").src =
+url + "?autoplay=1";
+
+document.getElementById("trailerModal").classList.add("show");
+
+}
+
+
+/* DOWNLOAD */
+
+function authorizedDownload(url){
+
+if(url==="#" || !url){
+
+alert(
+"Download link not connected yet. Add the authorized download URL for this title."
+);
+
+return;
+
+}
+
+window.open(url,"_blank");
+
+}
+
+function downloadMovie(){
+
+authorizedDownload(currentMovie.download);
+
+}
+
+
+/* MODALS */
+
+function closeModal(id){
+
+document.getElementById(id).classList.remove("show");
+
+if(id==="trailerModal"){
+
+document.getElementById("trailerFrame").src="";
+
+}
+
+}
 
 
 /* SEARCH */
 
 function openSearch(){
 
-document
-.getElementById("searchOverlay")
-.classList.add("show");
+document.getElementById("searchOverlay").classList.add("show");
 
-document
-.getElementById("searchInput")
-.focus();
+setTimeout(()=>{
+document.getElementById("searchInput").focus();
+},200);
 
 }
 
 function closeSearch(){
 
-document
-.getElementById("searchOverlay")
-.classList.remove("show");
+document.getElementById("searchOverlay").classList.remove("show");
 
 }
 
+function searchContent(){
 
-/* ESCAPE SEARCH */
+const q=
+document.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
 
-document.addEventListener("keydown",function(e){
+const results=[...movies,...series].filter(x=>
 
-if(e.key==="Escape"){
-    closeSearch();
+x.title.toLowerCase().includes(q) ||
+x.genre.toLowerCase().includes(q) ||
+x.category.toLowerCase().includes(q)
+
+);
+
+document.getElementById("searchResults").innerHTML=
+results.map((x,i)=>card(x,i)).join("");
+
 }
-
-});
-
-
-/* GENRES */
-
-document.querySelectorAll(".genre").forEach(button=>{
-
-button.addEventListener("click",function(){
-
-const parent=this.parentElement;
-
-parent.querySelectorAll(".genre")
-.forEach(item=>item.classList.remove("active"));
-
-this.classList.add("active");
-
-});
-
-});
-
-
-/* SERIES SWITCH */
-
-document.querySelectorAll(".switcher button").forEach(button=>{
-
-button.addEventListener("click",function(){
-
-document
-.querySelectorAll(".switcher button")
-.forEach(item=>item.classList.remove("active"));
-
-this.classList.add("active");
-
-});
-
-});
 
 
 /* MOBILE MENU */
 
 function toggleMenu(){
 
-const nav=document.querySelector(".nav");
-
-if(nav.style.display==="flex"){
-
-nav.style.display="none";
-
-}else{
-
-nav.style.display="flex";
-nav.style.position="absolute";
-nav.style.top="68px";
-nav.style.left="0";
-nav.style.width="100%";
-nav.style.padding="25px";
-nav.style.background="#080808";
-nav.style.flexDirection="column";
-nav.style.borderBottom="1px solid rgba(212,175,55,.2)";
+document.getElementById("nav")
+.classList.toggle("open");
 
 }
 
+
+/* HEADER SCROLL */
+
+window.addEventListener("scroll",()=>{
+
+document.getElementById("header")
+.classList.toggle("scrolled",window.scrollY>40);
+
+});
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+modal.addEventListener("click",function(e){
+
+if(e.target===modal){
+
+modal.classList.remove("show");
+
+if(modal.id==="trailerModal"){
+document.getElementById("trailerFrame").src="";
 }
+
+}
+
+});
+
+});
 
 </script>
 
